@@ -59,7 +59,7 @@ You can compile all files using the provided Kotlin script:
 
 ```bash
 kotlinc -script compile.kts
-````
+```
 
 This will compile all source files into binaries or `.class`/`.jar` files in their respective folders.
 
@@ -113,7 +113,7 @@ cd Java && javac Count.java
 cd Kotlin && kotlinc count.kt -include-runtime -d count.jar
 
 # Kotlin/Native
-cd KotlinNative && kotlinc-native count.kt -o count
+kotlinc-native count.kt -o count -Xcache-directory=~/.cache/kotlin-native
 
 # Assembly
 cd Assembly && nasm -f elf64 count.asm && ld -o count count.o
