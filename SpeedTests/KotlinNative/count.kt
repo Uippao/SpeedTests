@@ -1,8 +1,11 @@
-import kotlin.system.getTimeNanos
+import kotlin.system.measureTimeMillis
+import kotlin.time.TimeSource
 
 fun main() {
-    val start = getTimeNanos()
+    val start = TimeSource.Monotonic.markNow()  // Using TimeSource.Monotonic.markNow()
     for (i in 1..10_000) println(i)
-    val elapsed = getTimeNanos() - start
-    println("Elapsed: %.9f seconds".format(elapsed / 1e9))
+    val elapsed = start.elapsedNow()  // Get the elapsed time
+
+    // Using String.format
+    println("Elapsed: %.9f seconds".format(elapsed.inWholeNanoseconds / 1e9))
 }
