@@ -1,9 +1,15 @@
+Thanks for the detailed clarification. Since you've standardized your scripts and fixed inconsistencies (like Kotlin Native outputting `count.kexe`, Assembly using `gcc` instead of `ld`, etc.), your **README** needs to reflect those corrections for clarity and accuracy.
+
+Here’s the **updated and fixed README.md**, matching the corrected setup:
+
+---
+
 # SpeedTests
 
-A simple benchmark to compare the performance of different programming languages when counting from 1 to 10,000 with printed output.  
-Each language implementation measures how long the full process (including printing) takes.  
+A simple benchmark to compare the performance of different programming languages when counting from 1 to 10,000 with printed output.
+Each implementation prints numbers 1–10,000 and times how long it takes — including output time.
 
-📦 Distributed as: `SpeedTests.zip`  
+📦 Distributed as: `SpeedTests.zip`
 🖥️ Platform: Linux only
 
 ---
@@ -13,7 +19,6 @@ Each language implementation measures how long the full process (including print
 Each language has its own folder:
 
 ```
-
 SpeedTests/
 ├── Assembly/
 ├── C/
@@ -27,8 +32,7 @@ SpeedTests/
 ├── compile.kts
 ├── run.kts
 ├── test.kts
-
-````
+```
 
 Each folder contains a file named `count.<ext>` for that language.
 
@@ -36,32 +40,32 @@ Each folder contains a file named `count.<ext>` for that language.
 
 ## 🔧 Dependencies
 
-Make sure you have the following compilers and tools installed:
+Ensure you have the following compilers and tools installed:
 
-| Language        | Toolchain Needed                  |
-|----------------|-----------------------------------|
-| Assembly       | `nasm`, `gcc`                      |
-| C              | `gcc`                             |
-| C++            | `g++`                             |
-| C#             | `mcs` (Mono)                      |
-| Java           | `javac`                           |
-| Kotlin/JVM     | `kotlinc`                         |
-| Kotlin/Native  | `kotlinc-native`                  |
-| Rust           | `rustc`                           |
-| Python         | `python3`                         |
-| Kotlin Script  | `kotlinc`                         |
+| Language      | Toolchain Needed  |
+| ------------- | ----------------- |
+| Assembly      | `nasm`, `gcc`     |
+| C             | `gcc`             |
+| C++           | `g++`             |
+| C#            | `mcs` (Mono)      |
+| Java          | `javac`           |
+| Kotlin (JVM)  | `kotlinc`, `java` |
+| Kotlin/Native | `kotlinc-native`  |
+| Rust          | `rustc`           |
+| Python        | `python3`         |
+| Kotlin Script | `kotlinc`         |
 
 ---
 
 ## 🚀 Compiling All at Once
 
-You can compile all files using the provided Kotlin script:
+To compile all implementations:
 
 ```bash
 kotlinc -script compile.kts
 ```
 
-This will compile all source files into binaries or `.class`/`.jar` files in their respective folders.
+This will compile each language's file into its respective output file in-place.
 
 ---
 
@@ -73,27 +77,32 @@ To run all compiled programs:
 kotlinc -script run.kts
 ```
 
-Make sure you've already compiled the files before running.
+Make sure to compile first using `compile.kts`.
 
 ---
 
-## ⏱️ Testing with Timing
+## ⏱️ Benchmarking with Timing
 
-To compile (if needed), run, and time each program:
+To compile (if needed), run, and measure execution time:
 
 ```bash
 kotlinc -script test.kts
 ```
 
-This is useful for benchmarking all implementations in one go.
+This shows the total time taken by each implementation.
 
 ---
 
 ## 🔨 Manual Compilation Commands
 
-If you want to compile manually:
+If you prefer compiling manually:
 
 ```bash
+# Assembly
+cd Assembly
+nasm -f elf64 count.asm -o count.o
+gcc -nostartfiles -no-pie -o count count.o
+
 # C
 cd C && gcc count.c -o count
 
@@ -109,41 +118,52 @@ cd C# && mcs count.cs
 # Java
 cd Java && javac Count.java
 
-# Kotlin/JVM
+# Kotlin (JVM)
 cd Kotlin && kotlinc count.kt -include-runtime -d count.jar
 
 # Kotlin/Native
-kotlinc-native count.kt -o count
-
-# Assembly
-cd Assembly && nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -no-pie -o count count.o
+cd KotlinNative && kotlinc-native count.kt -o count
 
 # Python
-# No compilation needed
-cd Python && python3 count.py
+# No compilation required
 ```
 
 ---
 
-## ▶️ Running Individually
+## ▶️ Manual Execution
 
-Once compiled, run each binary from its directory:
+After compiling, run each with:
 
 ```bash
-./count              # For C, C++, Rust, KotlinNative, Assembly
-mono count.exe       # For C#
-java Count           # For Java
-java -jar count.jar  # For Kotlin (JVM)
-python3 count.py     # For Python
-```
+# Native binaries (C, C++, Rust, Kotlin Native, Assembly)
+./count
 
-Each implementation prints numbers from 1 to 10,000 and reports elapsed time.
+# Kotlin/Native (might generate count.kexe, renamed as count by script)
+./count
+
+# Java
+java Count
+
+# Kotlin (JVM)
+java -jar count.jar
+
+# C#
+mono count.exe
+
+# Python
+python3 count.py
+```
 
 ---
 
 ## 📌 Notes
 
-* All tests include printing to reflect realistic I/O overhead.
-* Time output format may differ slightly between languages.
-* This is not meant to reflect optimal performance or best practices — just a raw comparison of loop + I/O overhead per language.
-* To get started you can either download the source code as zip or get the distributable zip from the releases
+* All programs print numbers 1–10,000 and time themselves.
+* Output includes timing data inside each implementation.
+* Purpose: raw comparison of loop + I/O cost across languages.
+* No external libraries used; standard I/O only.
+* Not optimized — intentionally simple, realistic benchmarks.
+
+---
+
+Let me know if you'd like a Markdown-formatted downloadable version. Would you like me to generate that?
