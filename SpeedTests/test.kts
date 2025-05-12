@@ -41,5 +41,14 @@ val tests = listOf(
     Entry("C#", listOf("mcs", "count.cs"), "count.exe", listOf("mono", "count.exe")),
     Entry("Java", listOf("javac", "Count.java"), "Count.class", listOf("java", "Count")),
     Entry("Kotlin", listOf("kotlinc", "count.kt", "-include-runtime", "-d", "count.jar"), "count.jar", listOf("java", "-jar", "count.jar")),
-    Entry("KotlinNative", listOf("kotlinc-native", "count.kt", "-o", "count",), "count", listOf("./count"))
+    Entry("KotlinNative", listOf("kotlinc-native", "count.kt", "-o", "count"), "count.kexe", listOf("./count.kexe")),
+    Entry("Assembly", listOf("sh", "-c", "nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -no-pie -o count count.o"), "count", listOf("./count"))
 )
+
+tests.forEach { entry ->
+    val dir = File(base, entry.folder)
+    if (!dir.exists()) return@forEach
+    if (entry.compile != null && entry.output != null)
+        compileIfMissing(entry.compile, entry.output, dir)
+    runWithTime(entry.folder, entry.run, dir)
+}
