@@ -24,7 +24,7 @@ val runners = mapOf(
     "C#"           to listOf("mono", "count.exe"),
     "Java"         to listOf("java", "Count"),
     "Kotlin"       to listOf("java", "-jar", "count.jar"),
-    "KotlinNative" to listOf("./count"),
+    "KotlinNative" to listOf("./count.kexe"),
     "Assembly"     to listOf("./count"),
     "Python"       to listOf("python3", "count.py")
 )
