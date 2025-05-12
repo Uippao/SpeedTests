@@ -23,7 +23,7 @@ val langs = mapOf(
     "C++"          to listOf("g++", "count.cpp", "-o", "count"),
     "Rust"         to listOf("rustc", "count.rs", "-o", "count"),
     "Java"         to listOf("javac", "Count.java"),
-    "Kotlin"       to listOf("kotlinc", "Count.kt", "-include-runtime", "-d", "count.jar"),
+    "Kotlin"       to listOf("kotlinc", "count.kt", "-include-runtime", "-d", "count.jar"),
     "KotlinNative" to listOf("kotlinc-native", "count.kt", "-o", "count"),
     "C#"           to listOf("mcs", "count.cs"),
     "Assembly"     to listOf("sh", "-c", "nasm -f elf64 count.asm && ld -o count count.o")
