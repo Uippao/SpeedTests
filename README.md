@@ -147,4 +147,3 @@ Each implementation prints numbers from 1 to 10,000 and reports elapsed time.
 * Time output format may differ slightly between languages.
 * This is not meant to reflect optimal performance or best practices — just a raw comparison of loop + I/O overhead per language.
 * To get started you can either download the source code as zip or get the distributable zip from the releases
-* Make sure `~/.cache/kotlin-native` exists
