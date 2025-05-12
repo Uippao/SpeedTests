@@ -146,10 +146,4 @@ Each implementation prints numbers from 1 to 10,000 and reports elapsed time.
 * All tests include printing to reflect realistic I/O overhead.
 * Time output format may differ slightly between languages.
 * This is not meant to reflect optimal performance or best practices — just a raw comparison of loop + I/O overhead per language.
-
----
-
-## 🧪 Tested On
-
-* Linux (EndeavourOS, Arch-based)
-* x86\_64 architecture
+* To get started you can either download the source code as zip or get the distributable zip from the releases
