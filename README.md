@@ -130,8 +130,8 @@ After compiling, run each with:
 # Native binaries (C, C++, Rust, Kotlin Native, Assembly)
 ./count
 
-# Kotlin/Native (might generate count.kexe, renamed as count by script)
-./count
+# Kotlin/Native generates a count.kexe file instead
+./count.kexe
 
 # Java
 java Count
