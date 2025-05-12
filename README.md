@@ -40,7 +40,7 @@ Make sure you have the following compilers and tools installed:
 
 | Language        | Toolchain Needed                  |
 |----------------|-----------------------------------|
-| Assembly       | `nasm`, `ld`                      |
+| Assembly       | `nasm`, `gcc`                      |
 | C              | `gcc`                             |
 | C++            | `g++`                             |
 | C#             | `mcs` (Mono)                      |
@@ -116,7 +116,7 @@ cd Kotlin && kotlinc count.kt -include-runtime -d count.jar
 kotlinc-native count.kt -o count -Xcache-directory=~/.cache/kotlin-native
 
 # Assembly
-cd Assembly && nasm -f elf64 count.asm && ld -o count count.o
+cd Assembly && nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -o count count.o
 
 # Python
 # No compilation needed
