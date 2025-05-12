@@ -40,5 +40,5 @@ val tests = listOf(
     Entry("Rust", listOf("rustc", "count.rs", "-o", "count"), "count", listOf("./count")),
     Entry("C#", listOf("mcs", "count.cs"), "count.exe", listOf("mono", "count.exe")),
     Entry("Java", listOf("javac", "Count.java"), "Count.class", listOf("java", "Count")),
-    Entry("Kotlin", listOf("kotlinc", "Count.kt", "-include-runtime", "-d", "count.jar"), "count.jar", listOf("java", "-jar", "count.jar")),
+    Entry("Kotlin", listOf("kotlinc", "count.kt", "-include-runtime", "-d", "count.jar"), "count.jar", listOf("java", "-jar", "count.jar")),
     Entry("KotlinNative", listOf
