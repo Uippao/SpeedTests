@@ -107,7 +107,7 @@ cd Rust && rustc count.rs -o count
 cd C# && mcs count.cs
 
 # Java
-cd Java && javac count.java
+cd Java && javac Count.java
 
 # Kotlin/JVM
 cd Kotlin && kotlinc count.kt -include-runtime -d count.jar
