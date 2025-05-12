@@ -113,10 +113,10 @@ cd Java && javac Count.java
 cd Kotlin && kotlinc count.kt -include-runtime -d count.jar
 
 # Kotlin/Native
-kotlinc-native count.kt -o count -Xcache-directory=~/.cache/kotlin-native
+kotlinc-native count.kt -o count
 
 # Assembly
-cd Assembly && nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -o count count.o
+cd Assembly && nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -no-pie -o count count.o
 
 # Python
 # No compilation needed
