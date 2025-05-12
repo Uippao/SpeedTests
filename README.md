@@ -1,9 +1,3 @@
-Thanks for the detailed clarification. Since you've standardized your scripts and fixed inconsistencies (like Kotlin Native outputting `count.kexe`, Assembly using `gcc` instead of `ld`, etc.), your **README** needs to reflect those corrections for clarity and accuracy.
-
-Here’s the **updated and fixed README.md**, matching the corrected setup:
-
----
-
 # SpeedTests
 
 A simple benchmark to compare the performance of different programming languages when counting from 1 to 10,000 with printed output.
@@ -163,7 +157,3 @@ python3 count.py
 * Purpose: raw comparison of loop + I/O cost across languages.
 * No external libraries used; standard I/O only.
 * Not optimized — intentionally simple, realistic benchmarks.
-
----
-
-Let me know if you'd like a Markdown-formatted downloadable version. Would you like me to generate that?
