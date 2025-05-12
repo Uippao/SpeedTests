@@ -24,7 +24,7 @@ val langs = mapOf(
     "Rust"         to listOf("rustc", "count.rs", "-o", "count"),
     "Java"         to listOf("javac", "Count.java"),
     "Kotlin"       to listOf("kotlinc", "count.kt", "-include-runtime", "-d", "count.jar"),
-    "KotlinNative" to listOf("kotlinc-native", "count.kt", "-o", "count"),
+    "KotlinNative" to listOf("kotlinc-native count.kt -o count -Xcache-directory=${System.getProperty("user.home")}/.cache/kotlin-native"),
     "C#"           to listOf("mcs", "count.cs"),
     "Assembly"     to listOf("sh", "-c", "nasm -f elf64 count.asm && ld -o count count.o")
 )
