@@ -93,9 +93,7 @@ If you prefer compiling manually:
 
 ```bash
 # Assembly
-cd Assembly
-nasm -f elf64 count.asm -o count.o
-gcc -nostartfiles -no-pie -o count count.o
+cd Assembly && nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -no-pie -o count count.o
 
 # C
 cd C && gcc count.c -o count
