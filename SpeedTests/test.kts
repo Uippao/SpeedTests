@@ -41,5 +41,5 @@ val tests = listOf(
     Entry("C#", listOf("mcs", "count.cs"), "count.exe", listOf("mono", "count.exe")),
     Entry("Java", listOf("javac", "Count.java"), "Count.class", listOf("java", "Count")),
     Entry("Kotlin", listOf("kotlinc", "count.kt", "-include-runtime", "-d", "count.jar"), "count.jar", listOf("java", "-jar", "count.jar")),
-    Entry("KotlinNative", listOf("kotlinc-native", "count.kt", "-o", "count", "-Xcache-directory=${System.getProperty("user.home")}/.cache/kotlin-native"), "count", listOf("./count"))
+    Entry("KotlinNative", listOf("kotlinc-native", "count.kt", "-o", "count",), "count", listOf("./count"))
 )
