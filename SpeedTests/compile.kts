@@ -26,7 +26,7 @@ val langs = mapOf(
     "Kotlin"       to listOf("kotlinc", "count.kt", "-include-runtime", "-d", "count.jar"),
     "KotlinNative" to listOf("kotlinc-native", "count.kt", "-o", "count"),
     "C#"           to listOf("mcs", "count.cs"),
-    "Assembly"     to listOf("sh", "-c", "nasm -f elf64 count.asm && ld -o count count.o")
+    "Assembly"     to listOf("sh", "-c", "nasm -f elf64 count.asm -o count.o && gcc -nostartfiles -no-pie -o count count.o")
 )
 
 langs.forEach { (folder, command) ->
